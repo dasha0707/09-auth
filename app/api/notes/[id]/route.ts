@@ -18,7 +18,7 @@ export async function GET(_request: Request, { params }: Props) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status ?? 500 }
+        { status: error.status }
       );
     }
     logErrorResponse({ message: (error as Error).message });
@@ -38,7 +38,7 @@ export async function DELETE(_request: Request, { params }: Props) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status ?? 500 }
+        { status: error.status }
       );
     }
     logErrorResponse({ message: (error as Error).message });
@@ -61,7 +61,7 @@ export async function PATCH(request: Request, { params }: Props) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status ?? 500 }
+        { status: error.status }
       );
     }
     logErrorResponse({ message: (error as Error).message });
