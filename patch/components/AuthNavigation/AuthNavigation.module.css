@@ -1,6 +1,0 @@
-.navigationItem { display: flex; align-items: center; gap: 12px; list-style: none; }
-.navigationLink { text-decoration: none; color: inherit; font-weight: 500; }
-.navigationLink:hover { text-decoration: underline; }
-.userEmail { font-size: 13px; opacity: .85; overflow-wrap: anywhere; }
-.logoutButton { padding: 7px 12px; border: 1px solid #2563eb; background: transparent; border-radius: 5px; cursor: pointer; color: inherit; font: inherit; }
-.logoutButton:hover { background: #dbeafe; }
