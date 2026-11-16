@@ -1,0 +1,30 @@
+.main {
+  flex: 1;
+  width: 100%;
+  padding: 48px 24px;
+  background-color: #f8f9fa;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 5%);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #212529;
+}
+
+@media (max-width: 600px) {
+  .main { padding: 24px 12px; }
+  .container { padding: 20px; }
+  .title { font-size: 24px; }
+}

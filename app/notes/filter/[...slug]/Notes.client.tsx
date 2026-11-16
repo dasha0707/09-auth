@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import { Toaster } from 'react-hot-toast';
 import type { NoteTag } from '@/types/note';
 import { fetchNotes } from '@/lib/api';
-import Modal from '@/components/Modal/Modal';
-import NoteForm from '@/components/NoteForm/NoteForm';
 import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
 import SearchBox from '@/components/SearchBox/SearchBox';
@@ -23,7 +22,6 @@ function NotesContent({ tag }: { tag?: NoteTag }) {
   const [page, setPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const updateSearch = useDebouncedCallback((value: string) => {
     setPage(1);
@@ -41,11 +39,6 @@ function NotesContent({ tag }: { tag?: NoteTag }) {
     updateSearch(value);
   };
 
-  const handleCreated = () => {
-    setPage(1);
-    setIsModalOpen(false);
-  };
-
   const handleDeletedLast = () => {
     if (page > 1) setPage((previousPage) => previousPage - 1);
   };
@@ -61,13 +54,9 @@ function NotesContent({ tag }: { tag?: NoteTag }) {
             onPageChange={setPage}
           />
         )}
-        <button
-          className={css.button}
-          type="button"
-          onClick={() => setIsModalOpen(true)}
-        >
+        <Link className={css.button} href="/notes/action/create">
           Create note +
-        </button>
+        </Link>
       </header>
       {isPending && <p>Loading notes...</p>}
       {isError && (
@@ -81,14 +70,6 @@ function NotesContent({ tag }: { tag?: NoteTag }) {
       {data && data.notes.length === 0 && <p>No notes found.</p>}
       {isFetching && !isPending && (
         <span aria-live="polite">Updating...</span>
-      )}
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)} ariaLabel="Create note">
-          <NoteForm
-            onCancel={() => setIsModalOpen(false)}
-            onCreated={handleCreated}
-          />
-        </Modal>
       )}
       <Toaster position="top-right" />
     </main>
