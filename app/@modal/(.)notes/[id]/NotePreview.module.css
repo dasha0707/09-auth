@@ -1,0 +1,8 @@
+.container { width: min(560px, 100%); position: relative; padding: 18px 10px 4px; color: #1b2230; }
+.closeButton { position: absolute; top: -12px; right: 0; border: 0; background: transparent; font-size: 30px; cursor: pointer; color: #4b5563; }
+.item { padding: 8px; }
+.header { padding-right: 36px; border-bottom: 1px solid #e2e8f0; margin-bottom: 12px; }
+.header h2 { font-size: 24px; margin: 0 0 12px; }
+.tag { display: inline-block; border-radius: 6px; padding: 6px 10px; background: #edf2ff; font-size: 13px; font-weight: 600; }
+.content { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; margin: 18px 0; }
+.date { color: #6b7280; font-size: 13px; }
