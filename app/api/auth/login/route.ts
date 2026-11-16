@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       const cookieArray = Array.isArray(setCookie) ? setCookie : [setCookie];
       for (const cookieStr of cookieArray) {
         const parsed = parseSetCookie(cookieStr);
-        if (parsed?.value) cookieStore.set(parsed.name, parsed.value, parsed);
+        if (parsed.value) cookieStore.set(parsed.name, parsed.value, parsed);
       }
       return NextResponse.json(apiRes.data, { status: apiRes.status });
     }
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.response?.status ?? 500 }
+        { status: error.status ?? 500 }
       );
     }
     logErrorResponse({ message: (error as Error).message });

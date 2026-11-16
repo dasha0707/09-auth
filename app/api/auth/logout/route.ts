@@ -21,7 +21,7 @@ export async function POST() {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.response?.status ?? 500 }
+        { status: error.status ?? 500 }
       );
     }
     logErrorResponse({ message: (error as Error).message });

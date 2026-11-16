@@ -57,7 +57,7 @@ export default function EditProfilePage() {
           <p>Email: {user?.email ?? ''}</p>
           <div className={css.actions}>
             <button type="submit" className={css.saveButton} disabled={loading}>{loading ? 'Saving...' : 'Save'}</button>
-            <button type="button" className={css.cancelButton} onClick={() => router.push('/profile')}>Cancel</button>
+            <button type="button" className={css.cancelButton} onClick={() => router.back()}>Cancel</button>
           </div>
           {error && <p role="alert" className={css.error}>{error}</p>}
         </form>
