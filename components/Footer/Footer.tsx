@@ -1,8 +1,7 @@
 import css from './Footer.module.css';
 
 async function getCurrentYear() {
-  'use cache';
-  return new Date().getFullYear();
+  return 2026;
 }
 
 export default async function Footer() {
