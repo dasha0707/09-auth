@@ -6,7 +6,7 @@ import {
   HydrationBoundary,
 } from '@tanstack/react-query';
 import type { NoteTag } from '@/types/note';
-import { fetchNotes } from '@/lib/api';
+import { fetchNotes } from '@/lib/api/serverApi';
 import { ogImage, siteUrl } from '@/lib/seo';
 import NotesClient from './Notes.client';
 
